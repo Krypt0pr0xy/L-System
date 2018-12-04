@@ -8,7 +8,7 @@
 
 #define PI 3.14159265
 
-void file_erstellen(const char *ersetztstring,  char *string, int winkelerhöhen, char suchzeichen)
+void file_erstellen(const char *ersetztstring,  char *string, int winkelerhöhen, char suchzeichen ,int w)
 {
 	int winkel = 0, i = 0, lange = 3;
 	double val = 0;
@@ -25,11 +25,11 @@ void file_erstellen(const char *ersetztstring,  char *string, int winkelerhöhen,
 	val = PI / 180;
 	FILE * fp;
 
-	for (i3 = 0; i3 < 6; i3++)
+	for (i3 = 0; i3 < w; i3++)
 	{
 		for (i = 0; string[i] != 0; i++)
 		{
-			if (string[i] == 'F')
+			if (string[i] == suchzeichen)
 			{
 				i2 = -1;
 				do
@@ -87,7 +87,7 @@ void file_erstellen(const char *ersetztstring,  char *string, int winkelerhöhen,
 			winkel -= 360;
 		}
 
-		if (string[i] == 'F')
+		if (string[i] == suchzeichen)
 		{
 			switch (winkel)
 			{
@@ -167,19 +167,54 @@ void file_erstellen(const char *ersetztstring,  char *string, int winkelerhöhen,
 
 
 
-
-void frage_startstring(char *text, unsigned int groesse)
+void frage_startstring(char *text)
 {
-	strcpy(text, "F++F++F"); //Schneeflocke
+	char temp[80] = { 0 };
+	int i = 0;
+	printf("Start String Eingeben (z.b:F--F--F):");
+	fgets(temp, 80, stdin);
+	printf("\n");
+
+	for (i = 0; temp[i] != 0; i++)
+	{
+		*text = temp[i];
+		text++;
+	}
+
 }
 
 char frage_suchzeichen()
 {
-	return 'F';
+	char temp = 0;
+	printf("Suchzeichen Eingeben:");
+	scanf("%c", &temp);
+	printf("\n");
+	return temp;
 }
 
-void frage_erstzstring(char *text, unsigned int groesse)
+void frage_erstzstring(char *text)
 {
-	strcpy(text, "F+F--F+F");
+	char temp[80] = { 0 };
+	int i = 0;
+	printf("Ersetzstring String Eingeben (z.b:F+F--F+F):");
+	fgets(temp, 80, stdin);
+	printf("\n");
+
+	for (i = 0; temp[i] != 0; i++)
+	{
+		*text = temp[i];
+		text++;
+	}
+
 }
+
+float frage_winkel()
+{
+	float temp = 0;
+	printf("Winkel eingeben(z.b 60.0):");
+	scanf("%f", &temp);
+	printf("\n");
+	return temp;
+}
+
 

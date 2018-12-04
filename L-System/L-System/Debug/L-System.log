@@ -1,5 +1,2 @@
 ﻿  calc.cpp
-  main.cpp
-c:\users\wyler\source\repos\l-system\l-system\main.cpp(16): warning C4326: Der Rückgabetyp von "main" sollte "int" und nicht "void" sein
-  Code wird generiert...
   L-System.vcxproj -> C:\Users\wyler\source\repos\L-System\Debug\L-System.exe

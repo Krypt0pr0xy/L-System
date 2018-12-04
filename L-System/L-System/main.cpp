@@ -5,7 +5,6 @@
 #include "calc.h"
 
 #pragma warning (disable:4996)
-
 #define PI 3.14159265
 
 
@@ -14,40 +13,20 @@
 
 void main(void)
 {
-	float winkel = 60.0;
-	char startstring[80];
-	char suchzeichen;
-	char ersetzstring[80];
+	int wiederholung = 6;
 
-	frage_startstring(startstring, 80);
-	suchzeichen = frage_suchzeichen();
-	frage_erstzstring(ersetzstring, 80);
-	char buffer[700000] = "F--F--F";
+	char startstring[700000] = { 0 };
+	frage_startstring(startstring);
 
-	file_erstellen("F+F--F+F", buffer,60, 'F' );
+	int w = 6;
 
 
+	char erstzstring[80] = { 0 };
+	frage_erstzstring(erstzstring);
 
-	char *zeiger; // Zeiger definieren
 
-	zeiger = &startstring[0]; // Zeiger Zeiger auf erstes zeichen setzten
-
-	// Schleife ueber startstring
-
-	while (*zeiger != '\0')
-	{
-		if (*zeiger == suchzeichen)
-		{
-			// ersetzstring ausgeben
-			printf("%s", ersetzstring);
-		}
-		else
-		{
-			//Zeichenausgeben
-			printf("%c", *zeiger);
-		}
-		zeiger++;
-	}
+	
+	file_erstellen(erstzstring, startstring, frage_winkel(), frage_suchzeichen(), wiederholung);
 
 
 	system("start L-System.html");

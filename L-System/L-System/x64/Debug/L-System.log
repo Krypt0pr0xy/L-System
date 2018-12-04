@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\wyler\source\repos\l-system\l-system\main.cpp(15): warning C4326: Der Rückgabetyp von "main" sollte "int" und nicht "void" sein
+c:\users\wyler\source\repos\l-system\l-system\main.cpp(29): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+  L-System.vcxproj -> C:\Users\wyler\source\repos\L-System\x64\Debug\L-System.exe
